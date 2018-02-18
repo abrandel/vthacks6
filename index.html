@@ -70,18 +70,7 @@
 		var img = new Image();
 		img.src = can.toDataURL();
 		document.body.appendChild(img);
-		}
-		   catch(err)
-		   {console.log(err);}
-		};
-	    
-  
-      
-        
-
-
-        /*
-	    function processImage() {
+		
             // **********************************************
             // *** Update or verify the following values. ***
             // **********************************************
@@ -105,8 +94,7 @@
             };
 
             // Display the image.
-            var sourceImageUrl = document.getElementById("inputImage").value;
-            document.querySelector("#sourceImage").src = sourceImageUrl;
+            var sourceImageUrl = img.src;
 
             // Perform the REST API call.
             $.ajax({
@@ -128,7 +116,9 @@
                 // Show formatted JSON on webpage.
     		$("#smileval").text(data[0].faceAttributes.smile);
     		$("#happyval").text(data[0].faceAttributes.emotion.happiness);
-
+		var smile1 = data[0].faceAttributes.smile;
+		if (smile1 >= .7)
+		alert("You Lost");
         $("#responseTextArea").val(JSON.stringify(data, null, 1));
 
             })
@@ -139,8 +129,15 @@
                 errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
                     jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
                 alert(errorString);
-            });
-        }; */
+            });}
+		   catch(err)
+		   {console.log(err);}
+		};
+	    
+  
+      
+        
+
 	 
     </script>
 
