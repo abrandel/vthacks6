@@ -310,7 +310,25 @@
                      console.log(img.height);
                 
                      $("#snapshots").empty();
-
+                    
+                
+  formData.append('image', img.src.split('base64')[1]);
+  formData.append('type', 'base64');
+  
+  fetch('https://api.imgur.com/3/image', {
+    method: 'POST',
+    headers: new Headers({
+      Authorization: 'Client-ID 90ef1830bd083ba'
+    }),
+    body: formData
+  }).then(response => {
+    if (response.ok) {
+      console.log(response);
+      response.json().then((json) => {
+        console.log(json);
+        console.log(json.data.link);
+        var imgf = json.data.link;
+          
                     // **********************************************
                     // *** Update or verify the following values. ***
                     // **********************************************
@@ -341,7 +359,7 @@
                             },
                             type: "POST",
                             // Request body.
-                            data: '{"url": ' + '"' + img.src + '"}',
+                            data: '{"url": ' + '"' + imgf + '"}',
                         })
                         .done(function(data) {
                             // Show formatted JSON on webpage.
@@ -366,6 +384,12 @@
                 console.log(err);
             } 
         }
+      })
+      // alert('Image uploaded to album');       
+    }
+  })
+  
+
     </script>
 
 </body>
