@@ -68,6 +68,8 @@
         function canvs() {
             try {
                 var video = document.querySelector('video');
+                if (!video)
+                    throw "no video";
                 var canvas = document.querySelector('canvas');
                 // Get a handle on the 2d context of the canvas element
                 var context = canvas.getContext('2d');
