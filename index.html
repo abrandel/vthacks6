@@ -72,10 +72,11 @@
                 // Get a handle on the 2d context of the canvas element
                 var context = canvas.getContext('2d');
                 // Define some vars required later	      
-                context.drawImage(video, 0, 0, 300, 300);
+        
                 var img = new Image();
                 img.src = canvas.toDataURL();
                 img.onload = function() {
+                     context.drawImage(video, 0, 0, img.width, img.height);
                     document.body.appendChild(img);
 
                     // **********************************************
