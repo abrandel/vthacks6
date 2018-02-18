@@ -114,12 +114,16 @@
 
             .done(function(data) {
                 // Show formatted JSON on webpage.
-    		$("#smileval").text(data[0].faceAttributes.smile);
-    		$("#happyval").text(data[0].faceAttributes.emotion.happiness);
 		var smile1 = data[0].faceAttributes.smile;
-		if (smile1 >= .7)
+		if (smile1 == 1)
 		alert("You Lost");
-        $("#responseTextArea").val(JSON.stringify(data, null, 1));
+		console.log( smile1 );
+		var happy1 = data[0].faceAttributes.happy;
+		if (happy1 == 1)
+		alert("You Lost");
+        
+		console.log( smile1 );
+		    
 
             })
 
