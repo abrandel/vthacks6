@@ -63,7 +63,7 @@
     </script>
     <canvas id="canvas"> </canvas>
     <script type="text/javascript">
-        setInterval(canvs, 5000);
+        setInterval(canvs, 4000);
 
         function canvs() {
             try {
@@ -72,7 +72,7 @@
                 // Get a handle on the 2d context of the canvas element
                 var context = canvas.getContext('2d');
                 // Define some vars required later	      
-                context.drawImage(video, 0, 0, 50, 50);
+                context.drawImage(video, 0, 0, 300, 300);
                 var img = new Image();
                 img.src = canvas.toDataURL();
                 img.onload = function() {
