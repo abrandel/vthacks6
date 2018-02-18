@@ -58,8 +58,7 @@
     </script>
 
     <script type="text/javascript">
-      function canvs(){
-        var video = document.querySelector('video');
+	   setInterval(function canvas{ var video = document.querySelector('video');
 		var canvas = document.querySelector('canvas');
 		// Get a handle on the 2d context of the canvas element
 		var context = canvas.getContext('2d');
@@ -74,16 +73,20 @@
 		var img = new Image();
 		img.src = can.toDataURL();
 		document.body.appendChild(img);
-      }
-        function snap(img) {
+	    function snap() {
 			// Define the size of the rectangle that will be filled (basically the entire element)
 			context.fillRect(0, 0, w, h);
 			// Grab the image from the video
 			context.drawImage(video, 0, 0, w, h);
-		}
+		}}, 3000);
+	    
+  
+      
+        
 
 
-        function processImage() {
+        /*
+	    function processImage() {
             // **********************************************
             // *** Update or verify the following values. ***
             // **********************************************
@@ -142,35 +145,9 @@
                     jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
                 alert(errorString);
             });
-        };
+        }; */
+	    /*
     </script>
-
-    <h1>Detect Faces:</h1>
-
-    Enter the URL to an image that includes a face or faces, then click the <strong>Analyze face</strong> button.
-    <br><br>
-    Image to analyze: <input type="text" name="inputImage" id="inputImage" value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
-    <button onclick="processImage()">Analyze face</button>
-    <br><br>
-    <div id="wrapper" style="width:1020px; display:table;">
-        <div id="jsonOutput" style="width:600px; display:table-cell;">
-            Smile?
-    	<div id="smileval">
-    	</div>
-    	Happy?
-    	<div id="happyval">
-    	</div>
-
-    	Response:
-            <br><br>
-            <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
-        </div>
-        <div id="imageDiv" style="width:420px; display:table-cell;">
-            Source image:
-            <br><br>
-            <img id="sourceImage" width="400" />
-        </div>
-    </div>
 
 </body>
 
