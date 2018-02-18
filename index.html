@@ -69,6 +69,7 @@
 		context.drawImage(video, 0, 0, 50, 50);
 		var img = new Image();
 		img.src = canvas.toDataURL();
+		img.onload = function(){
 		document.body.appendChild(img);
 		
             // **********************************************
@@ -134,7 +135,7 @@
                 errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
                     jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
                 alert(errorString);
-            });}
+            });}};
 		   catch(err)
 		   {console.log(err);}
 		};
