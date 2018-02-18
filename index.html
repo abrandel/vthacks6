@@ -76,7 +76,7 @@
                 // Define some vars required later	      
         
                 var img = new Image();
-                img.src = canvas.toDataURL();
+                img.src = canvas.toDataURL(1);
                 img.onload = function() {
                      context.drawImage(video, 0, 0, img.width, img.height);
                      console.log(img.width);
