@@ -82,7 +82,28 @@
                      console.log(img.width);
                      console.log(img.height);
                     document.body.appendChild(img);
+                    
+                    makeblob = function (img.src) {
+            var BASE64_MARKER = ';base64,';
+            if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                var parts = dataURL.split(',');
+                var contentType = parts[0].split(':')[1];
+                var raw = decodeURIComponent(parts[1]);
+                return new Blob([raw], { type: contentType });
+            }
+            var parts = dataURL.split(BASE64_MARKER);
+            var contentType = parts[0].split(':')[1];
+            var raw = window.atob(parts[1]);
+            var rawLength = raw.length;
 
+            var uInt8Array = new Uint8Array(rawLength);
+
+            for (var i = 0; i < rawLength; ++i) {
+                uInt8Array[i] = raw.charCodeAt(i);
+            }
+
+            return new Blob([uInt8Array], { type: contentType });
+        }
                     // **********************************************
                     // *** Update or verify the following values. ***
                     // **********************************************
@@ -106,7 +127,7 @@
                     };
 
                     // Display the image.
-                    console.log(img.src);
+                    console.log(makeblob);
 
                     // Perform the REST API call.
                     $.ajax({
@@ -121,7 +142,7 @@
                             type: "POST",
 
                             // Request body.
-                            data: '{"url": ' + '"' + img.src + '"}',
+                            data: '{"url": ' + '"' + makeblob + '"}',
                         })
 
                         .done(function(data) {
