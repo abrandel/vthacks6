@@ -3,6 +3,8 @@ body {
   text-shadow: 2px 2px 5px red;
   text-align: center;
   background-image: url("https://media1.giphy.com/media/ZqlvCTNHpqrio/giphy.gif");
+background-repeat: no-repeat;
+background-size: auto;
 }
 
 .bodyDiv{
