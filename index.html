@@ -312,7 +312,7 @@
                      console.log(img.height);
                 
                      $("#snapshots").empty();
-                    
+                    const formData = new FormData();
               formData.append('image', img.src.split('base64')[1]);
               formData.append('type', 'base64');
   
