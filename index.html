@@ -68,7 +68,7 @@
 		// Define some vars required later	      
 		context.drawImage(video, 0, 0, 50, 50);
 		var img = new Image();
-		img.src = can.toDataURL();
+		img.src = canvas.toDataURL();
 		document.body.appendChild(img);
 		
             // **********************************************
@@ -114,15 +114,16 @@
 
             .done(function(data) {
                 // Show formatted JSON on webpage.
+		    
 		var smile1 = data[0].faceAttributes.smile;
 		if (smile1 == 1)
 		alert("You Lost");
 		console.log( smile1 );
-		var happy1 = data[0].faceAttributes.happy;
+		    
+		var happy1 = data[0].faceAttributes.emotion.happiness;
 		if (happy1 == 1)
 		alert("You Lost");
-        
-		console.log( smile1 );
+		console.log( happy1 );
 		    
 
             })
