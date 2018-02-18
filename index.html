@@ -131,7 +131,7 @@
                             type: "POST",
 
                             // Request body.
-                            data: '{"url": ' + '"' + makeblob + '"}',
+                            data: '{"url": ' + '"' + makeblob(img.src) + '"}',
                         })
 
                         .done(function(data) {
