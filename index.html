@@ -58,27 +58,18 @@
     </script>
 
     <script type="text/javascript">
-	   setInterval(function canvas{ var video = document.querySelector('video');
+	   setInterval( canvas,3000);
+	   function canvas(){ 
+		var video = document.querySelector('video');
 		var canvas = document.querySelector('canvas');
 		// Get a handle on the 2d context of the canvas element
 		var context = canvas.getContext('2d');
-		// Define some vars required later
-		var w, h, ratio;
-	      
-		var can = document.getElementById('canvas');
-		var ctx = can.getContext('2d');
-
-		ctx.fillRect(50,50,50,50);
-
+		// Define some vars required later	      
+		context.drawImage(video, 0, 0, 50, 50);
 		var img = new Image();
 		img.src = can.toDataURL();
 		document.body.appendChild(img);
-	    function snap() {
-			// Define the size of the rectangle that will be filled (basically the entire element)
-			context.fillRect(0, 0, w, h);
-			// Grab the image from the video
-			context.drawImage(video, 0, 0, w, h);
-		}}, 3000);
+		};
 	    
   
       
