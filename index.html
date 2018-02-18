@@ -58,6 +58,22 @@
     </script>
 
     <script type="text/javascript">
+      function canvs(){
+        var video = document.querySelector('video');
+		var canvas = document.querySelector('canvas');
+		// Get a handle on the 2d context of the canvas element
+		var context = canvas.getContext('2d');
+		// Define some vars required later
+		var w, h, ratio;
+      }
+        function snap() {
+			// Define the size of the rectangle that will be filled (basically the entire element)
+			context.fillRect(0, 0, w, h);
+			// Grab the image from the video
+			context.drawImage(video, 0, 0, w, h);
+		}
+
+
         function processImage() {
             // **********************************************
             // *** Update or verify the following values. ***
