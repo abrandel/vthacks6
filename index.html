@@ -60,6 +60,7 @@
     <script type="text/javascript">
 	   setInterval( canvas,3000);
 	   function canvas(){ 
+		try{
 		var video = document.querySelector('video');
 		var canvas = document.querySelector('canvas');
 		// Get a handle on the 2d context of the canvas element
@@ -69,6 +70,9 @@
 		var img = new Image();
 		img.src = can.toDataURL();
 		document.body.appendChild(img);
+		}
+		   catch(err)
+		   console.log(error);
 		};
 	    
   
