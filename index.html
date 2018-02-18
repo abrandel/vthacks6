@@ -25,6 +25,9 @@
         <input type="submit" value="Call" />
     </form>
 
+    <div id="snapshots"> 
+    </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdn.pubnub.com/pubnub.min.js"></script>
     <script src="https://kevingleason.me/SimpleRTC/js/webrtc.js"></script>
@@ -297,14 +300,19 @@
                 // Get a handle on the 2d context of the canvas element
                 var context = canvas.getContext('2d');
                 // Define some vars required later	      
-        
+                
+               
                 var img = new Image();
                 img.src = canvas.toDataURL(1);
                 img.onload = function() {
                      context.drawImage(video, 0, 0, img.width, img.height);
                      console.log(img.width);
                      console.log(img.height);
-                    document.body.appendChild(img);
+                
+                     $("#snapshots").empty();
+                     $("#snapshots").appendi(img);
+                      
+                </div>
                     // **********************************************
                     // *** Update or verify the following values. ***
                     // **********************************************
