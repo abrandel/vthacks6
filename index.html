@@ -128,12 +128,12 @@
                             // Show formatted JSON on webpage.
 
                             var smile1 = data[0].faceAttributes.smile;
-                            if (smile1 == 1)
+                            if (smile1 >= .9)
                                 alert("You Lost");
                             console.log(smile1);
 
                             var happy1 = data[0].faceAttributes.emotion.happiness;
-                            if (happy1 == 1)
+                            if (happy1 >= .9)
                                 alert("You Lost");
                             console.log(happy1);
 
