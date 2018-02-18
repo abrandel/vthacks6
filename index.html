@@ -94,7 +94,7 @@
             };
 
             // Display the image.
-            var sourceImageUrl = img.src;
+                console.log (img.src);
 
             // Perform the REST API call.
             $.ajax({
@@ -109,7 +109,7 @@
                 type: "POST",
 
                 // Request body.
-                data: '{"url": ' + '"' + sourceImageUrl + '"}',
+                data: '{"url": ' + '"' + img.src + '"}',
             })
 
             .done(function(data) {
